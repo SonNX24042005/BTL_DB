@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "68380af80d2d9b16f651c786"
+  },
+  "title": "Job Fair 2025 - Hoạt động Trực tuyến (Online)",
+  "link": "https://work.hust.edu.vn/#/job-fair",
+  "date": "Đến 30/05/2025",
+  "location": "Nền tảng tuyển dụng trực tuyến work.hust.edu.vn"
+},
+{
+  "_id": {
+    "$oid": "68380af80d2d9b16f651c787"
+  },
+  "title": "Đăng ký Xét tuyển Tài năng - Tuyển sinh Đại học Chính quy năm 2025",
+  "link": "https://ts.hust.edu.vn/b/xet-tuyen-tai-nang",
+  "date": "Từ 15/05/2025 (Đang diễn ra)",
+  "location": "Hệ thống đăng ký trực tuyến của ĐH Bách khoa Hà Nội"
+},
+{
+  "_id": {
+    "$oid": "68380af80d2d9b16f651c788"
+  },
+  "title": "Các Mốc Thời Gian Liên Quan Đến Kỳ Thi Tốt Nghiệp THPT và Xét Tuyển Đại học 2025",
+  "link": "https://ts.hust.edu.vn/",
+  "date": "Tháng 6 - Tháng 8/2025",
+  "location": "Toàn quốc / Hệ thống xét tuyển"
+}]

@@ -1,0 +1,444 @@
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
+--
+-- Host: localhost    Database: qldt
+-- ------------------------------------------------------
+-- Server version	8.4.5
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+-- Tạo cơ sở dữ liệu nếu chưa tồn tại
+CREATE DATABASE IF NOT EXISTS qldt CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+-- Chọn cơ sở dữ liệu để làm việc
+USE qldt;
+--
+-- Table structure for table `bangdiem`
+--
+
+
+DROP TABLE IF EXISTS `bangdiem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bangdiem` (
+  `MSSV` varchar(20) NOT NULL,
+  `MaHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `HocKy` varchar(10) NOT NULL,
+  `DiemSo` decimal(4,2) DEFAULT NULL,
+  `DiemChu` varchar(3) DEFAULT NULL,
+  `DiemGK` decimal(4,2) DEFAULT NULL,
+  `DiemCK` decimal(4,2) DEFAULT NULL,
+  PRIMARY KEY (`MSSV`,`MaHP`,`HocKy`),
+  KEY `MaHP` (`MaHP`),
+  CONSTRAINT `bangdiem_ibfk_1` FOREIGN KEY (`MSSV`) REFERENCES `sinhvien` (`MSSV`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `bangdiem_ibfk_2` FOREIGN KEY (`MaHP`) REFERENCES `hp` (`MaHP`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bangdiem`
+--
+
+
+
+--
+-- Table structure for table `chuongtrinh`
+--
+
+DROP TABLE IF EXISTS `chuongtrinh`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chuongtrinh` (
+  `MaChuongTrinh` varchar(10) NOT NULL,
+  `TenChuongTrinh` varchar(100) NOT NULL,
+  `MaTruong` varchar(10) NOT NULL,
+  PRIMARY KEY (`MaChuongTrinh`),
+  KEY `MaTruong` (`MaTruong`),
+  CONSTRAINT `chuongtrinh_ibfk_1` FOREIGN KEY (`MaTruong`) REFERENCES `truong` (`MaTruong`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chuongtrinh`
+--
+
+
+
+--
+-- Table structure for table `chuongtrinhdaotao`
+--
+
+DROP TABLE IF EXISTS `chuongtrinhdaotao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `chuongtrinhdaotao` (
+  `MaChuongTrinh` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `MaHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `KyHocKhuyenNghi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`MaChuongTrinh`,`MaHP`),
+  KEY `MaHP` (`MaHP`),
+  CONSTRAINT `chuongtrinhdaotao_ibfk_1` FOREIGN KEY (`MaChuongTrinh`) REFERENCES `chuongtrinh` (`MaChuongTrinh`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `chuongtrinhdaotao_ibfk_2` FOREIGN KEY (`MaHP`) REFERENCES `hp` (`MaHP`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chuongtrinhdaotao`
+--
+
+
+
+--
+-- Table structure for table `dangkyhocphan`
+--
+
+DROP TABLE IF EXISTS `dangkyhocphan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `dangkyhocphan` (
+  `MSSV` varchar(20) NOT NULL COMMENT 'Mã số sinh viên, tham chiếu đến SinhVien.MSSV',
+  `MaHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã học phần, tham chiếu đến HP.MaHP',
+  `MaKyHoc` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã kỳ học, tham chiếu đến KyHoc.MaKyHoc',
+  PRIMARY KEY (`MSSV`,`MaHP`,`MaKyHoc`),
+  KEY `FK_DangKyHocPhan_HP` (`MaHP`),
+  KEY `FK_DangKyHocPhan_KyHoc` (`MaKyHoc`),
+  CONSTRAINT `FK_DangKyHocPhan_HP` FOREIGN KEY (`MaHP`) REFERENCES `hp` (`MaHP`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `FK_DangKyHocPhan_KyHoc` FOREIGN KEY (`MaKyHoc`) REFERENCES `kyhoc` (`MaKyHoc`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `FK_DangKyHocPhan_SinhVien` FOREIGN KEY (`MSSV`) REFERENCES `sinhvien` (`MSSV`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Lưu trữ thông tin sinh viên đăng ký các học phần theo kỳ học';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dangkyhocphan`
+--
+
+
+
+--
+-- Table structure for table `giangvien`
+--
+
+DROP TABLE IF EXISTS `giangvien`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `giangvien` (
+  `MaGV` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `HoTenGV` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `MaTruong` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`MaGV`),
+  KEY `MaTruong` (`MaTruong`),
+  KEY `Email` (`Email`),
+  CONSTRAINT `giangvien_ibfk_1` FOREIGN KEY (`MaTruong`) REFERENCES `truong` (`MaTruong`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `giangvien_ibfk_2` FOREIGN KEY (`Email`) REFERENCES `taikhoan` (`Username`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `giangvien`
+--
+
+
+
+--
+-- Table structure for table `hp`
+--
+
+DROP TABLE IF EXISTS `hp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hp` (
+  `MaHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TenHP` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ThoiLuong` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `HeSoGK` decimal(3,2) DEFAULT NULL,
+  `TinChiHocTap` tinyint unsigned DEFAULT NULL,
+  `TinChiHocPhi` tinyint unsigned DEFAULT NULL,
+  `MaNhomHP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`MaHP`),
+  KEY `MaNhomHP` (`MaNhomHP`),
+  CONSTRAINT `hp_ibfk_1` FOREIGN KEY (`MaNhomHP`) REFERENCES `nhomhocphan` (`MaNhomHP`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hp`
+--
+
+
+
+--
+-- Table structure for table `kyhoc`
+--
+
+DROP TABLE IF EXISTS `kyhoc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kyhoc` (
+  `MaKyHoc` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`MaKyHoc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kyhoc`
+--
+
+
+
+--
+-- Table structure for table `lichhoc`
+--
+
+DROP TABLE IF EXISTS `lichhoc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lichhoc` (
+  `MSSV` varchar(20) NOT NULL,
+  `MaLopHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`MSSV`,`MaLopHP`),
+  KEY `IXFK_LichHoc_MaLopHP` (`MaLopHP`),
+  CONSTRAINT `FK_LichHoc_LopHocPhan` FOREIGN KEY (`MaLopHP`) REFERENCES `lophocphan` (`MaLopHP`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `FK_LichHoc_SinhVien` FOREIGN KEY (`MSSV`) REFERENCES `sinhvien` (`MSSV`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lichhoc`
+--
+
+
+
+--
+-- Table structure for table `lichthi`
+--
+
+DROP TABLE IF EXISTS `lichthi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lichthi` (
+  `MaLopHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã lớp học phần (FK → lophocphan.MaLopHP)',
+  `MaLopThi` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã lớp thi (FK → lopthi.MaLopThi)',
+  PRIMARY KEY (`MaLopHP`,`MaLopThi`),
+  KEY `fk_lichthi_lopthi` (`MaLopThi`),
+  CONSTRAINT `fk_lichthi_lophp` FOREIGN KEY (`MaLopHP`) REFERENCES `lophocphan` (`MaLopHP`),
+  CONSTRAINT `fk_lichthi_lopthi` FOREIGN KEY (`MaLopThi`) REFERENCES `lopthi` (`MaLopThi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Bảng lịch thi: liên kết mã lớp học phần (lophocphan.MaLopHP) với ca thi (lopthi.MaLopThi)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lichthi`
+--
+
+
+
+--
+-- Table structure for table `lop`
+--
+
+DROP TABLE IF EXISTS `lop`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lop` (
+  `MaLop` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `GVCN` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`MaLop`),
+  KEY `idx_gvcn` (`GVCN`),
+  CONSTRAINT `fk_lop_gv` FOREIGN KEY (`GVCN`) REFERENCES `giangvien` (`MaGV`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lop`
+--
+
+
+
+--
+-- Table structure for table `lophocphan`
+--
+
+DROP TABLE IF EXISTS `lophocphan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lophocphan` (
+  `MaLopHP` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `MaKyHoc` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `MaHP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `BuoiSo` int NOT NULL,
+  `SoLuongMax` int DEFAULT NULL,
+  `SoLuongSinhVien` int DEFAULT '0',
+  `MaPhong` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Thu` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `KipHoc` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ThoiGianBatDau` time DEFAULT NULL,
+  `ThoiGianKetThuc` time DEFAULT NULL,
+  `TuanHoc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `LoaiLop` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `DotMo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `MaQL` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`MaLopHP`),
+  KEY `idx_lophocphan_makyhoc` (`MaKyHoc`),
+  KEY `idx_lophocphan_mahp` (`MaHP`),
+  KEY `idx_lophocphan_maphong` (`MaPhong`),
+  CONSTRAINT `fk_lophocphan_hp` FOREIGN KEY (`MaHP`) REFERENCES `hp` (`MaHP`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_lophocphan_kyhoc` FOREIGN KEY (`MaKyHoc`) REFERENCES `kyhoc` (`MaKyHoc`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_lophocphan_phonghoc` FOREIGN KEY (`MaPhong`) REFERENCES `phonghoc` (`MaPhong`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lophocphan`
+--
+
+
+
+--
+-- Table structure for table `lopthi`
+--
+
+DROP TABLE IF EXISTS `lopthi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lopthi` (
+  `MaLopThi` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã lớp thi: xâu 6 ký tự số',
+  `MaPhongThi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã phòng thi (FK → phonghoc.MaPhong)',
+  `KipThi` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Kíp thi, các giá trị từ 1-8, có thể là "1" hoặc "1,2" hoặc "1,2,3",…',
+  `NgayThi` date NOT NULL COMMENT 'Ngày thi (kiểu DATE, nhập ví dụ như "2025-06-15")',
+  PRIMARY KEY (`MaLopThi`),
+  KEY `idx_lopthi_MaPhongThi` (`MaPhongThi`),
+  CONSTRAINT `fk_lopthi_phonghoc` FOREIGN KEY (`MaPhongThi`) REFERENCES `phonghoc` (`MaPhong`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Bảng lớp thi: chứa mã lớp thi, phòng thi, kíp thi, ngày thi';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lopthi`
+--
+
+
+
+--
+-- Table structure for table `nhomhocphan`
+--
+
+DROP TABLE IF EXISTS `nhomhocphan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nhomhocphan` (
+  `MaNhomHP` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `TenNhomHP` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`MaNhomHP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhomhocphan`
+--
+
+
+
+--
+-- Table structure for table `phonghoc`
+--
+
+DROP TABLE IF EXISTS `phonghoc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `phonghoc` (
+  `MaPhong` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`MaPhong`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `phonghoc`
+--
+
+
+
+--
+-- Table structure for table `sinhvien`
+--
+
+DROP TABLE IF EXISTS `sinhvien`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sinhvien` (
+  `MSSV` varchar(20) NOT NULL,
+  `HoTenSV` varchar(200) NOT NULL,
+  `GioiTinh` enum('Nam','Nu') NOT NULL,
+  `MaLop` varchar(15) NOT NULL,
+  `Email` varchar(150) DEFAULT NULL,
+  `DoB` date DEFAULT NULL,
+  `TrangThai` tinyint(1) NOT NULL DEFAULT '1',
+  `CCCD` varchar(12) DEFAULT NULL,
+  `SDT` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`MSSV`),
+  KEY `Email` (`Email`),
+  CONSTRAINT `sinhvien_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `taikhoan` (`Username`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sinhvien`
+--
+
+
+
+--
+-- Table structure for table `taikhoan`
+--
+
+DROP TABLE IF EXISTS `taikhoan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `taikhoan` (
+  `Username` varchar(150) NOT NULL,
+  `MatKhau` varchar(50) NOT NULL,
+  PRIMARY KEY (`Username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `taikhoan`
+--
+
+
+
+--
+-- Table structure for table `truong`
+--
+
+DROP TABLE IF EXISTS `truong`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `truong` (
+  `MaTruong` varchar(10) NOT NULL,
+  `TenTruong` varchar(50) NOT NULL,
+  PRIMARY KEY (`MaTruong`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `truong`
+--
+
+
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-06-02  2:19:04

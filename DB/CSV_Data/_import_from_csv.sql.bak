@@ -1,0 +1,163 @@
+-- Script import dữ liệu từ CSV files vào database qldt
+-- Tạo bởi extract_csv_from_sql.py
+
+USE qldt;
+
+-- Tắt kiểm tra foreign key tạm thời
+SET FOREIGN_KEY_CHECKS=0;
+
+-- Import dữ liệu cho bảng bangdiem
+LOAD DATA LOCAL INFILE 'bangdiem.csv'
+INTO TABLE `bangdiem`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng chuongtrinh
+LOAD DATA LOCAL INFILE 'chuongtrinh.csv'
+INTO TABLE `chuongtrinh`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng chuongtrinhdaotao
+LOAD DATA LOCAL INFILE 'chuongtrinhdaotao.csv'
+INTO TABLE `chuongtrinhdaotao`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng dangkyhocphan
+LOAD DATA LOCAL INFILE 'dangkyhocphan.csv'
+INTO TABLE `dangkyhocphan`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng giangvien
+LOAD DATA LOCAL INFILE 'giangvien.csv'
+INTO TABLE `giangvien`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng hp
+LOAD DATA LOCAL INFILE 'hp.csv'
+INTO TABLE `hp`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng kyhoc
+LOAD DATA LOCAL INFILE 'kyhoc.csv'
+INTO TABLE `kyhoc`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng lichhoc
+LOAD DATA LOCAL INFILE 'lichhoc.csv'
+INTO TABLE `lichhoc`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng lichthi
+LOAD DATA LOCAL INFILE 'lichthi.csv'
+INTO TABLE `lichthi`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng lop
+LOAD DATA LOCAL INFILE 'lop.csv'
+INTO TABLE `lop`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng lophocphan
+LOAD DATA LOCAL INFILE 'lophocphan.csv'
+INTO TABLE `lophocphan`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng lopthi
+LOAD DATA LOCAL INFILE 'lopthi.csv'
+INTO TABLE `lopthi`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng nhomhocphan
+LOAD DATA LOCAL INFILE 'nhomhocphan.csv'
+INTO TABLE `nhomhocphan`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng phonghoc
+LOAD DATA LOCAL INFILE 'phonghoc.csv'
+INTO TABLE `phonghoc`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng sinhvien
+LOAD DATA LOCAL INFILE 'sinhvien.csv'
+INTO TABLE `sinhvien`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng taikhoan
+LOAD DATA LOCAL INFILE 'taikhoan.csv'
+INTO TABLE `taikhoan`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Import dữ liệu cho bảng truong
+LOAD DATA LOCAL INFILE 'truong.csv'
+INTO TABLE `truong`
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+-- Bật lại kiểm tra foreign key
+SET FOREIGN_KEY_CHECKS=1;
