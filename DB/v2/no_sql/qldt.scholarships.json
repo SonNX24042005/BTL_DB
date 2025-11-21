@@ -1,0 +1,134 @@
+[{
+  "_id": {
+    "$oid": "68380cc10d2d9b16f651c793"
+  },
+  "title": "Học bổng Khuyến khích Học tập (KKHT) - Học kỳ 2024.2",
+  "description": "Xét cấp học bổng KKHT cho sinh viên có kết quả học tập và rèn luyện đạt từ loại Khá trở lên trong học kỳ 2024.2, không bị kỷ luật.",
+  "details": [
+    {
+      "key": "Đối tượng",
+      "value": "Sinh viên đại học chính quy"
+    },
+    {
+      "key": "Mức học bổng",
+      "value": "Theo 3 mức: Khá, Giỏi, Xuất sắc (Theo quy định)"
+    },
+    {
+      "key": "Tiêu chí",
+      "value": "Điểm GPA và Điểm rèn luyện học kỳ 2024.2"
+    }
+  ],
+  "link": "https://ctsv.hust.edu.vn/thong-bao-hoc-bong/",
+  "category": "KKHT"
+},
+{
+  "_id": {
+    "$oid": "68380cc10d2d9b16f651c794"
+  },
+  "title": "Học bổng Trần Đại Nghĩa năm học 2025-2026",
+  "description": "Học bổng danh giá nhất của ĐHBK Hà Nội nhằm vinh danh và hỗ trợ tài chính cho những sinh viên tài năng, có thành tích xuất sắc trong học tập, nghiên cứu khoa học và hoạt động xã hội.",
+  "details": [
+    {
+      "key": "Đối tượng",
+      "value": "Sinh viên năm 3, 4, 5 có thành tích đặc biệt xuất sắc"
+    },
+    {
+      "key": "Giá trị",
+      "value": "Từ 30 - 50 triệu đồng/suất (Tùy năm)"
+    },
+    {
+      "key": "Yêu cầu",
+      "value": "GPA > 3.6, Có thành tích NCKH, Tiếng Anh tốt, Tham gia hoạt động"
+    }
+  ],
+  "link": "https://hust.edu.vn/vi/news/tin-tuc-su-kien/",
+  "category": "TranDaiNghia"
+},
+{
+  "_id": {
+    "$oid": "68380cc10d2d9b16f651c795"
+  },
+  "title": "Học bổng Tài năng Samsung 2025 (STP)",
+  "description": "Chương trình học bổng của Công ty TNHH Samsung Display Việt Nam (SDV) dành cho sinh viên ưu tú khối ngành Kỹ thuật, với cơ hội thực tập và làm việc tại Samsung.",
+  "details": [
+    {
+      "key": "Nhà tài trợ",
+      "value": "Samsung Display Việt Nam"
+    },
+    {
+      "key": "Ngành học",
+      "value": "Điện-Điện tử, Cơ khí, CNTT, Vật liệu, Hóa học, Vật lý..."
+    },
+    {
+      "key": "Quyền lợi",
+      "value": "Hỗ trợ tài chính, Khóa đào tạo, Thực tập, Việc làm"
+    }
+  ],
+  "link": "https://ctsv.hust.edu.vn/hoc-bong-tai-tro/",
+  "category": "DoanhNghiep"
+},
+{
+  "_id": {
+    "$oid": "68380cc10d2d9b16f651c796"
+  },
+  "title": "Học bổng Trao đổi Sinh viên tại Đại học Kỹ thuật Nanyang, Singapore (NTU)",
+  "description": "Cơ hội học tập một học kỳ tại NTU - một trong những trường đại học hàng đầu châu Á và thế giới, dành cho sinh viên ĐHBK Hà Nội.",
+  "details": [
+    {
+      "key": "Trường đối tác",
+      "value": "Nanyang Technological University (NTU), Singapore"
+    },
+    {
+      "key": "Thời gian",
+      "value": "01 Học kỳ"
+    },
+    {
+      "key": "Hỗ trợ",
+      "value": "Miễn học phí tại NTU (Sinh viên tự túc chi phí khác)"
+    }
+  ],
+  "link": "https://htqt.hust.edu.vn/category/hoc-bong-trao-doi/",
+  "category": "TraoDoi"
+},
+{
+  "_id": {
+    "$oid": "68380cc10d2d9b16f651c797"
+  },
+  "title": "Học bổng Hỗ trợ Học tập từ Quỹ Cựu Sinh viên",
+  "description": "Quỹ Cựu Sinh viên ĐHBK Hà Nội trao các suất học bổng nhằm động viên, hỗ trợ các sinh viên có hoàn cảnh gia đình khó khăn, nỗ lực vươn lên trong học tập.",
+  "details": [
+    {
+      "key": "Đối tượng",
+      "value": "Sinh viên có hoàn cảnh khó khăn (hộ nghèo/cận nghèo, mồ côi, bệnh tật...)"
+    },
+    {
+      "key": "Yêu cầu",
+      "value": "Có ý thức vươn lên, kết quả học tập từ Khá trở lên"
+    },
+    {
+      "key": "Giá trị",
+      "value": "5 - 10 triệu đồng/suất (Ví dụ)"
+    }
+  ],
+  "link": "https://ctsv.hust.edu.vn/hoc-bong-ho-tro-hoc-tap/",
+  "category": "HTHT"
+},
+{
+  "_id": {
+    "$oid": "68380cc10d2d9b16f651c798"
+  },
+  "title": "Học bổng Đồng hương Nghệ An - Hà Tĩnh tại ĐHBK Hà Nội",
+  "description": "Học bổng do Hội đồng hương Nghệ An - Hà Tĩnh tại Hà Nội trao tặng, nhằm khuyến khích sinh viên quê hương đang học tập tại trường.",
+  "details": [
+    {
+      "key": "Đối tượng",
+      "value": "Sinh viên có hộ khẩu thường trú tại Nghệ An hoặc Hà Tĩnh"
+    },
+    {
+      "key": "Tiêu chí",
+      "value": "Thành tích học tập tốt hoặc hoàn cảnh khó khăn"
+    }
+  ],
+  "link": "#",
+  "category": "QueHuong"
+}]

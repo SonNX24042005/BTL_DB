@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "68380be20d2d9b16f651c78b"
+  },
+  "image": "https://hust.edu.vn/uploads/media/hust/content-media/2025-05/1715764034-727581136-z5452243454743_52d7e0034a7065eb07908b975e54d89e.jpg",
+  "title": "Đại học Bách khoa Hà Nội – Đại học Quốc gia Tp. Hồ Chí Minh: Tăng cường hợp tác chiến lược toàn diện",
+  "category": "Hợp tác & Đối ngoại",
+  "link": "https://hust.edu.vn/vi/news/hop-tac-doi-ngoai/dai-hoc-bach-khoa-ha-noi-dai-hoc-quoc-gia-tp-ho-chi-minh-tang-cuong-hop-tac-chien-luoc-toan-dien-697206.html"
+},
+{
+  "_id": {
+    "$oid": "68380be20d2d9b16f651c78c"
+  },
+  "image": "https://ts.hust.edu.vn/images/articles/2024/05/15/xttn-2025-1715758223.png",
+  "title": "Đại học Bách khoa Hà Nội mở đăng ký Xét tuyển tài năng năm 2025",
+  "category": "Tuyển sinh",
+  "link": "https://ts.hust.edu.vn/tin-tuc/dai-hoc-bach-khoa-ha-noi-mo-dang-ky-xet-tuyen-tai-nang-nam-2025"
+},
+{
+  "_id": {
+    "$oid": "68380be20d2d9b16f651c78d"
+  },
+  "image": "https://hust.edu.vn/uploads/media/hust/content-media/2025-05/1715137839-447038198-3f8a6142-6e2a-430c-8e36-c4d6f461e765.png",
+  "title": "Đại học Bách khoa Hà Nội và Tập đoàn FPT hợp tác toàn diện về đào tạo nhân lực bán dẫn",
+  "category": "Hợp tác & Đối ngoại",
+  "link": "https://hust.edu.vn/vi/news/hop-tac-doi-ngoai/dai-hoc-bach-khoa-ha-noi-va-tap-doan-fpt-hop-tac-toan-dien-ve-dao-tao-nhan-luc-ban-dan-696770.html"
+},
+{
+  "_id": {
+    "$oid": "68380be20d2d9b16f651c78e"
+  },
+  "image": "https://hust.edu.vn/uploads/media/hust/content-media/2025-04/1713580554-1563857508-qs-ranking-by-subject-2025.jpg",
+  "title": "Đại học Bách khoa Hà Nội lần thứ 3 liên tiếp vào Top 500 thế giới về lĩnh vực Kỹ thuật và Công nghệ",
+  "category": "Xếp hạng",
+  "link": "https://hust.edu.vn/vi/news/tin-tuc-su-kien/dai-hoc-bach-khoa-ha-noi-lan-thu-3-lien-tiep-vao-top-500-the-gioi-ve-linh-vuc-ky-thuat-va-cong-nghe-695777.html"
+},
+{
+  "_id": {
+    "$oid": "68380be20d2d9b16f651c78f"
+  },
+  "image": "https://ts.hust.edu.vn/images/articles/2024/03/19/de-an-ts-2025-1710815185.png",
+  "title": "Đại học Bách khoa Hà Nội công bố phương án tuyển sinh đại học chính quy năm 2025",
+  "category": "Tuyển sinh",
+  "link": "https://ts.hust.edu.vn/tin-tuc/dai-hoc-bach-khoa-ha-noi-cong-bo-phuong-an-tuyen-sinh-dai-hoc-chinh-quy-nam-2025"
+}]
